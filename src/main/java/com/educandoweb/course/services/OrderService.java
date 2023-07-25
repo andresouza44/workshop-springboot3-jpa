@@ -1,7 +1,7 @@
 package com.educandoweb.course.services;
 
 import com.educandoweb.course.entities.Order;
-import com.educandoweb.course.repositories.OrderRepositiry;
+import com.educandoweb.course.repositories.OrderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,14 +12,14 @@ import java.util.Optional;
 public class OrderService {
 
     @Autowired
-    OrderRepositiry orderRepositiry;
+    OrderRepository orderRepository;
 
     public List<Order> findAll(){
-        return orderRepositiry.findAll();
+        return orderRepository.findAll();
     }
 
     public Order findById(Long id){
-        Optional<Order> obj = orderRepositiry.findById(id);
+        Optional<Order> obj = orderRepository.findById(id);
         return obj.get();
     }
 
