@@ -9,7 +9,7 @@ import jakarta.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name="tb_order_item")
+@Table(name = "tb_order_item")
 public class OrderItem {
 
     @EmbeddedId
@@ -18,11 +18,11 @@ public class OrderItem {
     private Integer quantity;
     private Double price;
 
-    public OrderItem(){
+    public OrderItem() {
 
     }
 
-    public OrderItem(Order order, Product product,Integer quantity, Double price) {
+    public OrderItem(Order order, Product product, Integer quantity, Double price) {
         id.setOrder(order);
         id.setProduct(product);
         this.quantity = quantity;
@@ -30,7 +30,7 @@ public class OrderItem {
     }
 
     @JsonIgnore
-    public Order getOrder(){
+    public Order getOrder() {
         return id.getOrder();
     }
 
@@ -51,17 +51,21 @@ public class OrderItem {
         this.price = price;
     }
 
-    public void setOrder(Order order){
+    public void setOrder(Order order) {
         id.setOrder(order);
 
     }
 
-    public Product getProduct (){
+    public Product getProduct() {
         return id.getProduct();
 
     }
-    public void setProduct(Product product){
+    public void setProduct(Product product) {
         id.setProduct(product);
+    }
+
+    public Double getSubTotal() {
+        return price * quantity;
     }
 
     @Override
